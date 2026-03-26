@@ -1,6 +1,10 @@
 // Stephanie Barrera Coding 1 Spring 2026
 // My first c++ Program
 
+// to compile, open the 'Developer Command Prompt for VS'
+// navigate to this folder with 'cd' for 'change directory'
+// use the command 'g++ filename.cpp' (in this case, it's 'main.cpp)
+// and then type 'filename' to run the .exe (in this case, it's main)
 #include <iostream> // in out stream, for sending text to the console.
 #include <string>   // for playerName
 
