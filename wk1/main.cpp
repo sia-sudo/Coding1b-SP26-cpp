@@ -41,7 +41,7 @@ int main() {
         cin >> input;   // get user input
 
         // the OR operator '||' means that if any test evaluates to true, the statement is true
-        if(input == "yes" || input == "Yes" input == "YES" ) {
+        if(input == "yes" || input == "Yes" || input == "YES" ) {
             cout << "Well, that's convenient!\n";
         }
         else {
@@ -65,7 +65,7 @@ int main() {
         cout << "\n\tDEBUG MODE\n\n";
         cout << "playerAge = " << playerAge << ".\n";
         cout << "playerName = " << playerName << ".\n";
-        cout << "happinessPercent = " << hapinessPercent << ".\n";
+        cout << "happinessPercent = " << happinessPercent << ".\n";
         cout << "keepPlaying = " << keepPlaying << ".\n";
     }
 
