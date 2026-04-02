@@ -12,13 +12,15 @@ int main() {
     cout << "Let's learn about variables and logic!\n";
 
     // declaring and defining variables
+    // highlight word and press quotes
     int playerAge = -1;
-    string playerName=  "Darth Vader";
+    string playerName =  "Darth Vader";
     float happinessPercent = 0.61f;
     bool keepPlaying = true;
 
     // just like a branch in unreal engine
-    if(playerAge == -1){
+    // if(the test is true) run this code.
+    if(playerAge == -1) {
         cout << "How old are you?\n";
         cin >> playerAge;
 
@@ -29,39 +31,44 @@ int main() {
         else{
             cout << "Wow, " << playerAge << " years, that is a long time!\n";
         }   
+        // Good to tell the player what they just said
 
-        if(playerName == "Darth Vader"){
-            cout << "is your name " << playerName << "?\n";
-            string input; 
-            cin >> input;
-            if(input == "yes"){
-                cout << "Well, that's convenient!\n";
+    }   // end of if(playerAge)
 
-            }
-            else {
-                cout << "What is your name?\n";
-                cin >> playerName;
-            }
+    if(playerName == "Darth Vader") {
+        cout << "is your name " << playerName << "?\n";
+        string input;   // create a new string variable to keep track of user input
+        cin >> input;   // get user input
 
-            cout << "Hello" << playerName << ".\n";
-
-        } //end of if(playerAge)
-
-        // the AND operator '88 requires that all tests are true
-        if(playerAge == 37 && playerName == 'Brian'){
-            debug = true;
-            cout << "Hello creator. Debug mode is ON.\n";
-
-        } //end
-
-        if(debug) {
-            cout << "\n\tDEBUG Mode\n\n";
-            cout << "playerAge = " << playerAge << ".\n";
-            cout << "playerName = " << playerName << ".\n";
-            cout << "happinessPercent = " << hapinessPercent << ".\n";
-            cout << "keepPlaying = " << keepPlaying << ".\n";
+        // the OR operator '||' means that if any test evaluates to true, the statement is true
+        if(input == "yes" || input == "Yes" input == "YES" ) {
+            cout << "Well, that's convenient!\n";
         }
-    }   
+        else {
+            cout << "What is your name?\n";
+            cin >> playerName;
+        }
+
+        cout << "Hello " << playerName << ".\n";
+
+    }   // end of if(playerName)
+
+    bool debug = false;  // turn this on to debug the program
+
+    // the AND operator '&&' requires that all tests are true
+    if(playerAge == 37 && playerName == "Brian") {
+        cout << "Hello creator. Debug mode is ON.\n";
+
+    } // end of if(age && name)
+
+    if(debug) {
+        cout << "\n\tDEBUG MODE\n\n";
+        cout << "playerAge = " << playerAge << ".\n";
+        cout << "playerName = " << playerName << ".\n";
+        cout << "happinessPercent = " << hapinessPercent << ".\n";
+        cout << "keepPlaying = " << keepPlaying << ".\n";
+    }
+
 
     return 0;
-}
+} // end of main()
