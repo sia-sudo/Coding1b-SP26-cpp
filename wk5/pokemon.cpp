@@ -1,3 +1,5 @@
+// classes assignment
+
 // pokemon assignment
 
 #include <iostream>
@@ -57,6 +59,7 @@ public:
 
     // feed function
     void feed() {
+
         hunger -= 3;
 
         if(hunger < 0) {
@@ -64,6 +67,7 @@ public:
         }
 
         cout << name << " has been fed.\n";
+        cout << "Hunger is now " << hunger << ".\n";
     }
 
     // train function
@@ -112,14 +116,14 @@ public:
 
         while(enemyHealth > 0 && health > 0) {
 
-            cout << "\nAttack\n";
-            cout << "Heal\n";
-            cout << "Run Away\n";
+            cout << "\n1. Attack\n";
+            cout << "2. Heal\n";
+            cout << "3. Run Away\n";
 
             int choice;
             cin >> choice;
 
-            // Attack
+            // attack
             if(choice == 1) {
 
                 enemyHealth -= damage;
@@ -127,7 +131,9 @@ public:
                 cout << name << " attacks!\n";
                 cout << "Enemy health: " << enemyHealth << endl;
 
+                // enemy attacks back
                 if(enemyHealth > 0) {
+
                     health -= 8;
 
                     cout << "Enemy attacks back!\n";
@@ -135,19 +141,21 @@ public:
                 }
             }
 
-            // Heal
+            // heal
             else if(choice == 2) {
 
                 health += 10;
 
                 cout << name << " healed!\n";
 
+                // enemy attacks while healing
                 health -= 5;
 
                 cout << "Enemy attacks while healing!\n";
+                cout << name << "'s health: " << health << endl;
             }
 
-            // run
+            // run away
             else if(choice == 3) {
 
                 cout << name << " ran away!\n";
@@ -155,11 +163,12 @@ public:
             }
 
             else {
-                cout << "Invalid.\n";
+                cout << "Invalid choice.\n";
             }
 
             // lose condition
             if(health <= 0) {
+
                 health = 0;
                 alive = false;
 
@@ -167,8 +176,9 @@ public:
             }
         }
 
+        // win condition
         if(enemyHealth <= 0) {
-            cout << "Enemy defeated\n";
+            cout << "Enemy defeated!\n";
         }
     }
 
@@ -234,12 +244,18 @@ int main() {
 
     file.close();
 
+    // make sure file worked
+    if(names.size() == 0) {
+        cout << "Could not read names.txt\n";
+        return 1;
+    }
+
     // random name
     int randomIndex = rand() % names.size();
 
     string randomName = names[randomIndex];
 
-    cout << "Your critter's name is " << randomName << "\n";
+    cout << "Your critter's name is " << randomName << "!\n";
 
     // create critter
     critter pet(randomName, 100, 10);
@@ -248,37 +264,49 @@ int main() {
 
     while(choice != 5 && pet.getAlive()) {
 
-        cout << "\n===== MENU =====\n";
-        cout << "Feed\n";
-        cout << "Train\n";
-        cout << "Listen\n";
-        cout << "Battle\n";
-        cout << "Quit\n";
+        cout << "\n===== MENU ===== (Enter a number!!!)\n";
+        cout << "1. Feed\n";
+        cout << "2. Train\n";
+        cout << "3. Listen\n";
+        cout << "4. Battle\n";
+        cout << "5. Quit\n";
 
-        cin >> input;
+        cin >> choice;
 
-        if(input == "Feed") {
+
+        // fixing error
+        if(cin.fail()) {
+
+        cin.clear();              
+        cin.ignore(1000, '\n');   
+
+        cout << "Please enter a number.\n";
+
+        continue;
+        }
+
+        if(choice == 1) {
             pet.feed();
         }
 
-        else if(input == "Train") {
+        else if(choice == 2) {
             pet.train();
         }
 
-        else if(input == "Listen") {
+        else if(choice == 3) {
             pet.listen();
         }
 
-        else if(input == "Battle") {
+        else if(choice == 4) {
             pet.battle();
         }
 
-        else if(input == "Quit") {
-            cout << "Bye\n";
+        else if(choice == 5) {
+            cout << "Goodbye!\n";
         }
 
         else {
-            cout << "Try again\n";
+            cout << "Invalid option.\n";
         }
     }
 
